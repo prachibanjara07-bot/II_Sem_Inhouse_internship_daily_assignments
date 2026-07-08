@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Banana Game</title>
+
+    <style>
+        body {
+            position: relative;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        p {
+            font-size: 20px;
+            margin: 10px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<p>Apple: <span id="apple">0</span></p>
+<p>Banana: <span id="banana">0</span></p>
+
+<img src="apple.jpeg" id="appleImg" onclick="clickImage('apple', this)">
+<img src="banana.jpeg" id="bananaImg" onclick="clickImage('banana', this)">
+
+<script>
+
+let apple = 0;
+let banana = 0;
+
+// Place images randomly when page loads
+document.querySelectorAll("img").forEach(img => {
+    moveImage(img);
+});
+
+// Function to move image randomly
+function moveImage(img) {
+    let x = Math.random() * (window.innerWidth - 120);
+    let y = Math.random() * (window.innerHeight - 150);
+
+    img.style.left = x + "px";
+    img.style.top = y + "px";
+}
+
+// Function called when image is clicked
+function clickImage(type, img) {
+
+    if (type === "apple") {
+        apple++;
+        document.getElementById("apple").innerText = apple;
+    }
+    else {
+        banana++;
+        document.getElementById("banana").innerText = banana;
+    }
+
+    moveImage(img);
+}
+
+</script>
+
+</body>
+</html>
