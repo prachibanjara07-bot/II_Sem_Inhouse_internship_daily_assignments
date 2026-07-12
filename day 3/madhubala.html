@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Famous Women Icons</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:linear-gradient(to right,#f8d7da,#ffe5ec);
+    padding:40px;
+}
+
+h1{
+    text-align:center;
+    color:#b30059;
+    margin-bottom:40px;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.card{
+    width:320px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:350px;
+    object-fit:cover;
+}
+
+.card h2{
+    text-align:center;
+    color:#d81b60;
+    margin:15px 0;
+}
+
+details{
+    padding:15px;
+}
+
+summary{
+    list-style:none;
+    text-align:center;
+    background:#d81b60;
+    color:white;
+    padding:10px;
+    border-radius:25px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+summary::-webkit-details-marker{
+    display:none;
+}
+
+details p{
+    margin-top:15px;
+    color:#444;
+    line-height:1.6;
+}
+
+details h3{
+    color:#b30059;
+    margin-top:15px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Famous Women Icons</h1>
+
+<div class="container">
+
+    <!-- Kylie Jenner -->
+    <div class="card">
+        <img src="kylie.webp" alt="Kylie Jenner">
+        <h2>Kylie Jenner</h2>
+
+        <details>
+            <summary>Know More</summary>
+
+            <h3>Famous Work</h3>
+            <p>Founder of Kylie Cosmetics, one of the world's leading beauty brands.</p>
+
+            <h3>Something Special</h3>
+            <p>She is a successful entrepreneur, reality TV personality, and one of the most followed women on social media.</p>
+        </details>
+    </div>
+
+    <!-- Aishwarya Rai -->
+    <div class="card">
+        <img src="aish.jpg" alt="Aishwarya Rai">
+        <h2>Aishwarya Rai Bachchan</h2>
+
+        <details>
+            <summary>Know More</summary>
+
+            <h3>Famous Work</h3>
+            <p>Won Miss World 1994 and starred in Devdas, Jodhaa Akbar, Guru, and many other hit films.</p>
+
+            <h3>Something Special</h3>
+            <p>Known for her beauty, elegance, and international recognition. She has represented India at Cannes Film Festival.</p>
+        </details>
+    </div>
+
+    <!-- Madhubala -->
+    <div class="card">
+        <img src="madhubala.webp" alt="Madhubala">
+        <h2>Madhubala</h2>
+
+        <details>
+            <summary>Know More</summary>
+
+            <h3>Famous Work</h3>
+            <p>Best known for her unforgettable role as Anarkali in Mughal-e-Azam.</p>
+
+            <h3>Something Special</h3>
+            <p>Called the "Venus of Indian Cinema" because of her timeless beauty and legendary acting.</p>
+        </details>
+    </div>
+
+</div>
+
+</body>
+</html>
