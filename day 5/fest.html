@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PRAVAH 2026 - Navras College Fest Registration</title>
+
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Fonts: Calligraphy (Sofia) & Modern Body (Poppins) -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Sofia&display=swap" rel="stylesheet">
+
+<style>
+body {
+    /* Royal Rajasthani Theme Gradient (Maroon, Crimson, and Sunset Gold) with a Mandala motif overlay */
+    background: radial-gradient(circle at top right, rgba(255, 140, 0, 0.3), transparent), 
+                linear-gradient(135deg, #800020, #d9381e, #ff8c00);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+}
+
+/* Calligraphy Typography */
+h1, h3, .fest-title {
+    font-family: 'Sofia', cursive;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 3.5rem;
+    color: #ffdf00; /* Gold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.card {
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+.card-header-rajasthani {
+    background: linear-gradient(90deg, #4a0011, #800020);
+    border-bottom: 4px solid #ffdf00;
+}
+
+/* Interactive Event Grid Styling */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.event-box {
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    background: white;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.event-box img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-box:hover img {
+    transform: scale(1.1);
+}
+
+.event-box .event-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 8px 5px;
+    background: white;
+    display: block;
+}
+
+/* Selected Box State */
+.event-box.selected {
+    border-color: #d9381e;
+    box-shadow: 0 0 12px rgba(217, 56, 30, 0.6);
+    transform: translateY(-3px);
+}
+
+.event-box.selected .event-name {
+    background: #d9381e;
+    color: white;
+}
+
+.btn-rajasthani {
+    background: linear-gradient(90deg, #d9381e, #ff8c00);
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn-rajasthani:hover {
+    background: linear-gradient(90deg, #800020, #d9381e);
+    color: #ffdf00;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.footer {
+    color: #ffdf00;
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <!-- Registration Card -->
+    <div class="card shadow-lg mb-5">
+        <div class="card-header text-center card-header-rajasthani text-white py-4">
+            <h1>💥 PRAVAH 2026 💥</h1>
+            <h4 class="text-light" style="letter-spacing: 2px;">Experience the Navras of Rajasthan</h4>
+            <span class="badge bg-warning text-dark mt-2 fw-bold px-3 py-2">
+                Registration Open: 1 July - 7 July
+            </span>
+        </div>
+
+        <div class="card-body p-4">
+            <form id="registrationForm">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Full Name</label>
+                        <input type="text" id="name" class="form-control" required placeholder="e.g., Aarav Sharma">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">College ID</label>
+                        <input type="text" id="collegeId" class="form-control" required placeholder="e.g., 2026BIT001">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label fw-bold">Year</label>
+                        <select id="year" class="form-select">
+                            <option>1st Year</option>
+                            <option>2nd Year</option>
+                            <option>3rd Year</option>
+                            <option>4th Year</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label fw-bold">Section</label>
+                        <input type="text" id="section" class="form-control" required placeholder="A, B, C...">
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label class="form-label fw-bold">Branch</label>
+                        <input type="text" id="branch" class="form-control" required placeholder="e.g., CSE">
+                    </div>
+
+                    <div class="col-md-12 mb-4">
+                        <label class="form-label fw-bold">Semester</label>
+                        <input type="number" id="semester" class="form-control" required placeholder="e.g., 3" min="1" max="8">
+                    </div>
+
+                    <!-- Visual Event Box Selection -->
+                    <div class="col-md-12 mb-4">
+                        <label class="form-label fw-bold d-block mb-2">Choose Your Event (Navras Special Layout)</label>
+                        <input type="hidden" id="selectedEvent" required>
+                        
+                        <div class="event-grid">
+                            <div class="event-box" onclick="selectEvent('Dance', this)">
+                                <img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?w=400&auto=format&fit=crop&q=60" alt="Dance">
+                                <span class="event-name">Dance</span>
+                            </div>
+                            <div class="event-box" onclick="selectEvent('Singing', this)">
+                                <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd6a?w=400&auto=format&fit=crop&q=60" alt="Singing">
+                                <span class="event-name">Singing</span>
+                            </div>
+                            <div class="event-box" onclick="selectEvent('Rap', this)">
+                                <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=400&auto=format&fit=crop&q=60" alt="Rap">
+                                <span class="event-name">Rap</span>
+                            </div>
+                            <div class="event-box" onclick="selectEvent('Jazz', this)">
+                                <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=400&auto=format&fit=crop&q=60" alt="Jazz">
+                                <span class="event-name">Jazz</span>
+                            </div>
+                            <div class="event-box" onclick="selectEvent('Sports', this)">
+                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&auto=format&fit=crop&q=60" alt="Sports">
+                                <span class="event-name">Sports</span>
+                            </div>
+                            <div class="event-box" onclick="selectEvent('Coding', this)">
+                                <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=400&auto=format&fit=crop&q=60" alt="Coding">
+                                <span class="event-name">Coding</span>
+                            </div>
+                            <div class="event-box" onclick="selectEvent('Crochet', this)">
+                                <img src="https://images.unsplash.com/photo-1608748010899-18f300247112?w=400&auto=format&fit=crop&q=60" alt="Crochet">
+                                <span class="event-name">Crochet</span>
+                            </div>
+                            <div class="event-box" onclick="selectEvent('Concert', this)">
+                                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400&auto=format&fit=crop&q=60" alt="Concert">
+                                <span class="event-name">Concert</span>
+                            </div>
+                            <div class="event-box" onclick="selectEvent('Artwork', this)">
+                                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&auto=format&fit=crop&q=60" alt="Artwork">
+                                <span class="event-name">Artwork</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-rajasthani w-100 fs-5 shadow-sm mt-2">
+                    Submit Festive Registration
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Registered Students List -->
+    <div class="card shadow-lg">
+        <div class="card-header bg-dark text-white text-center py-3">
+            <h3>🎭 Registered Cultural Cohort</h3>
+        </div>
+        <div class="card-body table-responsive p-0">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-warning">
+                    <tr>
+                        <th>Name</th>
+                        <th>College ID</th>
+                        <th>Year</th>
+                        <th>Section</th>
+                        <th>Branch</th>
+                        <th>Semester</th>
+                        <th>Chosen Event</th>
+                        <th class="text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="footer">
+        Designed with 💖 for <b>PRAVAH 2026</b> | Experience Royal Heritage
+    </div>
+</div>
+
+<script>
+let students = JSON.parse(localStorage.getItem("students")) || [];
+displayStudents();
+
+// Function to handle clicking an event box
+function selectEvent(eventName, element) {
+    // Remove "selected" state from all boxes
+    document.querySelectorAll('.event-box').forEach(box => {
+        box.classList.remove('selected');
+    });
+    // Add "selected" state to clicked box
+    element.classList.add('selected');
+    // Set hidden input value for the form validator
+    document.getElementById('selectedEvent').value = eventName;
+}
+
+document.getElementById("registrationForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let chosenEvent = document.getElementById("selectedEvent").value;
+    if (!chosenEvent) {
+        alert("Please pick an event block before submitting!");
+        return;
+    }
+
+    let student = {
+        name: document.getElementById("name").value,
+        collegeId: document.getElementById("collegeId").value,
+        year: document.getElementById("year").value,
+        section: document.getElementById("section").value,
+        branch: document.getElementById("branch").value,
+        semester: document.getElementById("semester").value,
+        event: chosenEvent
+    };
+
+    students.push(student);
+    localStorage.setItem("students", JSON.stringify(students));
+    
+    displayStudents();
+    this.reset();
+    
+    // Clear selected box highlight
+    document.querySelectorAll('.event-box').forEach(box => box.classList.remove('selected'));
+    document.getElementById('selectedEvent').value = "";
+
+    alert("Padharo Mhare Desh! Registration Confirmed! 🎉");
+});
+
+function displayStudents() {
+    let table = document.getElementById("tableBody");
+    table.innerHTML = "";
+
+    if (students.length === 0) {
+        table.innerHTML = `<tr><td colspan="8" class="text-center text-muted py-4">No registrations yet. Be the first to join the celebration!</td></tr>`;
+        return;
+    }
+
+    students.forEach((student, index) => {
+        table.innerHTML += `
+        <tr>
+            <td class="fw-bold">${student.name}</td>
+            <td><code>${student.collegeId}</code></td>
+            <td>${student.year}</td>
+            <td>${student.section}</td>
+            <td>${student.branch}</td>
+            <td>Semester ${student.semester}</td>
+            <td><span class="badge bg-danger text-white px-2 py-1">${student.event}</span></td>
+            <td class="text-center">
+                <button class="btn btn-outline-danger btn-sm" onclick="deleteStudent(${index})">
+                    Remove
+                </button>
+            </td>
+        </tr>
+        `;
+    });
+}
+
+function deleteStudent(index) {
+    if (confirm("Are you sure you want to drop this registration?")) {
+        students.splice(index, 1);
+        localStorage.setItem("students", JSON.stringify(students));
+        displayStudents();
+    }
+}
+</script>
+
+</body>
+</html>
