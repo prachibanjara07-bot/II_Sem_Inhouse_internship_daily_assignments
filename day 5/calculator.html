@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<body>
+
+    <form>
+        <input type="text" id="number1" placeholder="Enter first number" required><br><br>
+
+        <input type="text" id="number2" placeholder="Enter second number" required><br><br>
+
+        <select id="operations">
+            <option value="">Select Operation</option>
+            <option value="+">Addition</option>
+            <option value="-">Subtraction</option>
+            <option value="*">Multiplication</option>
+            <option value="/">Division</option>
+        </select>
+
+        <button type="button" onclick="calculate()">Calculate</button><br><br>
+
+        <div id="result"></div>
+    </form>
+
+    <script>
+        function calculate() {
+            var num1 = parseFloat(document.getElementById("number1").value);
+            var num2 = parseFloat(document.getElementById("number2").value);
+            var operation = document.getElementById("operations").value;
+            let result = 0;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").innerHTML = "Please enter valid numbers.";
+                return;
+            }
+
+            switch (operation) {
+
+                case "+":
+                    result = num1 + num2;
+                    break;
+
+                case "-":
+                    result = num1 - num2;
+                    break;
+
+                case "*":
+                    result = num1 * num2;
+                    break;
+
+                case "/":
+                    if (num2 === 0) {
+                        result = "Cannot divide by zero";
+                    } else {
+                        result = num1 / num2;
+                    }
+                    break;
+
+                default:
+                    result = "Please select an operation";
+            }
+
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+    </script>
+
+</body>
+</html>
